@@ -17,3 +17,6 @@ target/
 # ide
 *.iml
 .idea/
+
+# log
+*.log

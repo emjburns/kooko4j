@@ -1,10 +1,7 @@
 package com.veritas.kooko4j;
 
 import org.openstack4j.api.OSClient;
-import org.openstack4j.model.identity.v2.Endpoint;
 import org.openstack4j.openstack.OSFactory;
-
-import java.util.List;
 
 /**
  * Program for testing openstack4j work
@@ -29,22 +26,36 @@ public class App
         OSClient.OSClientV2 os;
 
         try {
+            OSFactory.enableHttpLoggingFilter(true);
             os = OSFactory.builderV2()
                     .endpoint(auth_endpt)
                     .credentials("admin","admin")
                     .tenantName("demo")
                     .authenticate();
+
+
             System.out.println(op + "Authentication successful");
             System.out.println(op + "Endpoints:");
-            List<? extends Endpoint> endpoints = os.identity().listTokenEndpoints();
-            System.out.println(op + endpoints);
+//            List<? extends Endpoint> endpoints = os.identity().listTokenEndpoints();
+//            System.out.println(op + endpoints);
         }catch (Exception e){
             System.out.println(op + "Authentication ERROR");
             return;
         }
 
-//        System.out.println(op + "Testing pool listing");
-//        List<? extends LbPoolV2> list = os.networking().lbaasV2().lbPoolV2().list();
-//        System.out.println(op + list );
+        LbPoolTest lbPoolTest = new LbPoolTest();
+        lbPoolTest.runTest(os);
+
+        LoadBalancerTest loadBalancerTest = new LoadBalancerTest();
+        loadBalancerTest.runTest(os);
+
+        ListenerTest listenerTest = new ListenerTest();
+        listenerTest.runTest(os);
+
+        HealthMonitorTest healthMonitorTest = new HealthMonitorTest();
+        healthMonitorTest.runTest(os);
+
+        MemberTest memberTest = new MemberTest();
+        memberTest.runTest(os);
     }
 }

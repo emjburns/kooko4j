@@ -21,7 +21,7 @@ public class HealthMonitorTest extends CommonTest{
             log(list);
         }
 
-        if (true){
+        if (runtest){
             log("Healthmonitor list");
             Map<String,String> m = new HashMap<String,String>();
             m.put("id", "350576d8-5015-4d4e-b73f-23df2397e4c4");

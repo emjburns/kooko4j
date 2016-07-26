@@ -57,8 +57,5 @@ public class App
 
         HealthMonitorTest healthMonitorTest = new HealthMonitorTest();
         healthMonitorTest.runTest(os);
-
-        MemberTest memberTest = new MemberTest();
-        memberTest.runTest(os);
     }
 }

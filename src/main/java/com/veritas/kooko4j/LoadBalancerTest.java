@@ -56,6 +56,5 @@ public class LoadBalancerTest extends CommonTest{
             os.networking().lbaasV2().loadbalancerV2().delete("26c7f34c-a2f8-4c20-8ae6-40b311943b4c");
             waitforit();
         }
-
     }
 }

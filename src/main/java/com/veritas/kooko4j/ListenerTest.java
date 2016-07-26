@@ -3,7 +3,6 @@ package com.veritas.kooko4j;
 import org.openstack4j.api.Builders;
 import org.openstack4j.api.OSClient;
 import org.openstack4j.model.network.ext.Listener;
-import org.openstack4j.model.network.ext.LoadBalancerV2;
 import org.openstack4j.model.network.ext.Protocol;
 
 import java.util.HashMap;
@@ -12,7 +11,6 @@ import java.util.Map;
 
 public class ListenerTest extends CommonTest{
     public void runTest(OSClient.OSClientV2 os){
-
 
         log("Testing Listener");
 
@@ -28,7 +26,7 @@ public class ListenerTest extends CommonTest{
             log("Listener list");
             Map<String,String> m = new HashMap<String,String>();
             m.put("name", "listener1");
-            List<? extends LoadBalancerV2> list = os.networking().lbaasV2().loadbalancerV2().list(m);
+            List<? extends Listener> list = os.networking().lbaasV2().listener().list(m);
             log(list);
         }
 
@@ -40,7 +38,7 @@ public class ListenerTest extends CommonTest{
                             .description("listener here")
                             .protocol(Protocol.HTTP)
                             .protocolPort(80)
-                            .loadBalancerId("282b71ea-9ceb-4cd6-8881-cb511af2edb5")
+                            .loadBalancerId("40c5fc75-3df7-4e3f-abe4-41ded1ab387c")
                             .build());
             log(listener);
             waitforit();

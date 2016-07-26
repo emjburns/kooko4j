@@ -34,11 +34,11 @@ public class LbPoolTest extends CommonTest{
             log("Lb Pool create");
             LbPoolV2 lbPoolV2 = os.networking().lbaasV2().lbPoolV2()
                     .create(Builders.lbpoolV2()
-                            .name("testlbpool3333")
+                            .name("testlbpool44")
                             .description("this is a lb pool")
                             .protocol(Protocol.HTTP)
                             .lbMethod(LbMethod.ROUND_ROBIN)
-                            .listenerId("0ac794b9-0eb9-4cf6-a737-c8fc46e45acb")
+                            .listenerId("37e23991-e2b3-4929-93d9-dc92e450fc31")
                             .build());
             log(lbPoolV2);
             waitforit();

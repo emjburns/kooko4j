@@ -33,7 +33,7 @@ public class LoadBalancerTest extends CommonTest{
             log("Loadbalancer create");
             LoadBalancerV2 lb1 = os.networking().lbaasV2().loadbalancerV2()
                     .create(Builders.loadbalancerV2()
-                            .name("lb1")
+                            .name("lb44")
                             .description("im a baby lb")
                             .subnetId("388c5684-86b0-49ab-90ef-944b1f7328f8")
                             .build());

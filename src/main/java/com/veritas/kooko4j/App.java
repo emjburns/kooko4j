@@ -35,13 +35,16 @@ public class App
 
 
             System.out.println(op + "Authentication successful");
-            System.out.println(op + "Endpoints:");
+//            System.out.println(op + "Endpoints:");
 //            List<? extends Endpoint> endpoints = os.identity().listTokenEndpoints();
 //            System.out.println(op + endpoints);
         }catch (Exception e){
             System.out.println(op + "Authentication ERROR");
             return;
         }
+
+        CreateFlowTest createFlowTest = new CreateFlowTest();
+        createFlowTest.runTest(os);
 
         LbPoolTest lbPoolTest = new LbPoolTest();
         lbPoolTest.runTest(os);

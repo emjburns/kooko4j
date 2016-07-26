@@ -2,8 +2,8 @@ package com.veritas.kooko4j;
 
 import org.openstack4j.api.Builders;
 import org.openstack4j.api.OSClient;
+import org.openstack4j.model.network.ext.HealthMonitorType;
 import org.openstack4j.model.network.ext.HealthMonitorV2;
-import org.openstack4j.model.network.ext.HealthMonitorV2Type;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +21,7 @@ public class HealthMonitorTest extends CommonTest{
             log(list);
         }
 
-        if (runtest){
+        if (true){
             log("Healthmonitor list");
             Map<String,String> m = new HashMap<String,String>();
             m.put("id", "350576d8-5015-4d4e-b73f-23df2397e4c4");
@@ -36,7 +36,7 @@ public class HealthMonitorTest extends CommonTest{
                             .delay(3)
                             .maxRetries(6)
                             .timeout(2)
-                            .type(HealthMonitorV2Type.HTTP)
+                            .type(HealthMonitorType.HTTP)
                             .poolId("7552cd8f-b854-47f2-9674-88975a5ae3fa")
                             .build());
             log(hm);

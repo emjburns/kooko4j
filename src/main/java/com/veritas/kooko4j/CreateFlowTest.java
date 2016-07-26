@@ -3,8 +3,8 @@ package com.veritas.kooko4j;
 
 import org.openstack4j.api.Builders;
 import org.openstack4j.api.OSClient;
+import org.openstack4j.model.network.ext.HealthMonitorType;
 import org.openstack4j.model.network.ext.HealthMonitorV2;
-import org.openstack4j.model.network.ext.HealthMonitorV2Type;
 import org.openstack4j.model.network.ext.LbMethod;
 import org.openstack4j.model.network.ext.LbPoolV2;
 import org.openstack4j.model.network.ext.Listener;
@@ -64,7 +64,7 @@ public class CreateFlowTest extends CommonTest{
                             .delay(3)
                             .maxRetries(6)
                             .timeout(2)
-                            .type(HealthMonitorV2Type.HTTP)
+                            .type(HealthMonitorType.HTTP)
                             .poolId("c245c7ed-9a58-4215-9572-39f767234e0c")
                             .build());
             log(hm);

@@ -32,6 +32,15 @@ public class LbPoolTest extends CommonTest{
         }
 
         if (runtest){
+            log("Lb Pool get");
+            LbPoolV2 lbPoolV2 = os.networking().lbaasV2().lbPoolV2().get("c245c7ed-9a58-4215-9572-39f767234e0c");
+            log(lbPoolV2);
+            log("Lb pool list first listerner id ");
+            log(lbPoolV2.getListeners().get(0).getId());
+
+        }
+
+        if (runtest){
             log("Lb Pool create");
             LbPoolV2 lbPoolV2 = os.networking().lbaasV2().lbPoolV2()
                     .create(Builders.lbpoolV2()

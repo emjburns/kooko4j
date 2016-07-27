@@ -30,6 +30,13 @@ public class HealthMonitorTest extends CommonTest{
         }
 
         if (runtest){
+            log("Healthmonitor get");
+            HealthMonitorV2 hm = os.networking().lbaasV2().healthMonitorV2().get("95a76977-a50e-42e8-b7a6-ef75ccf9dc39");
+            log(hm);
+
+
+        }
+        if (runtest){
             log("Healthmonitor create");
             HealthMonitorV2 hm = os.networking().lbaasV2().healthMonitorV2()
                     .create(Builders.healthmonitorV2()
@@ -37,10 +44,9 @@ public class HealthMonitorTest extends CommonTest{
                             .maxRetries(6)
                             .timeout(2)
                             .type(HealthMonitorType.HTTP)
-                            .poolId("7552cd8f-b854-47f2-9674-88975a5ae3fa")
+                            .poolId("c245c7ed-9a58-4215-9572-39f767234e0c")
                             .build());
             log(hm);
-            waitforit();
         }
 
        if (runtest){
@@ -51,13 +57,11 @@ public class HealthMonitorTest extends CommonTest{
                             .delay(1)
                             .build());
             log(updated);
-            waitforit();
         }
 
         if (runtest){
             log("Healthmonitor delete");
             os.networking().lbaasV2().healthMonitorV2().delete("241ac8fd-0c2e-4c90-8ed6-990cb75f96fd");
-            waitforit();
         }
 
     }

@@ -7,7 +7,7 @@ import org.openstack4j.model.network.ext.HealthMonitorType;
 import org.openstack4j.model.network.ext.HealthMonitorV2;
 import org.openstack4j.model.network.ext.LbMethod;
 import org.openstack4j.model.network.ext.LbPoolV2;
-import org.openstack4j.model.network.ext.Listener;
+import org.openstack4j.model.network.ext.ListenerV2;
 import org.openstack4j.model.network.ext.LoadBalancerV2;
 import org.openstack4j.model.network.ext.Protocol;
 
@@ -26,12 +26,11 @@ public class CreateFlowTest extends CommonTest{
                             .subnetId("388c5684-86b0-49ab-90ef-944b1f7328f8")
                             .build());
             log(lb1);
-            waitforit();
         }
 
         if (runtest){
             log("Listener create");
-            Listener listener = os.networking().lbaasV2().listener()
+            ListenerV2 listener = os.networking().lbaasV2().listenerV2()
                     .create(Builders.listenerV2()
                             .name("listener" + n)
                             .description("listener here")
@@ -40,7 +39,6 @@ public class CreateFlowTest extends CommonTest{
                             .loadBalancerId("d8b09924-d223-42a8-b7e7-410e60fd04c5")
                             .build());
             log(listener);
-            waitforit();
         }
 
         if (runtest){
@@ -54,7 +52,6 @@ public class CreateFlowTest extends CommonTest{
                             .listenerId("4e1dc45b-31b1-480d-850c-8ee86dd3713d")
                             .build());
             log(lbPoolV2);
-            waitforit();
         }
 
         if (runtest){
@@ -68,8 +65,6 @@ public class CreateFlowTest extends CommonTest{
                             .poolId("c245c7ed-9a58-4215-9572-39f767234e0c")
                             .build());
             log(hm);
-            waitforit();
-
         }
     }
 }
